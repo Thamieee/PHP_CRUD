@@ -12,13 +12,16 @@
     $dao = new ProdutoDAO();
 
     $tabela = $dao->listar();
+    $soma = 0;
     if ($tabela) {
-        echo " <h1> Lista de Produtos </h1><br/>";
+        echo " <h1> Carrinho </h1><br/>";
         while ($linha = pg_fetch_array($tabela)) {
-            echo "Codigo: $linha[0] Descricao: $linha[1] Preco: $linha[2]"<br/>;
+            echo "Codigo: $linha[0] Descricao: $linha[1] Preco: $linha[2] <br/>";
+            $soma = $soma + $linha[2];
         }
     } else
         echo "Tabela vazia.";
+    echo "Valor total: $soma"
     ?>
 </body>
 

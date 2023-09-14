@@ -19,4 +19,7 @@ switch ($botao) {
         $_SESSION['preco'] = $_GET['txtPreco'];
         header("Location: ..\\view\Alterar.php");
         break;
+    case 'carrinho':
+        header("Location: ..\\view\Carrinho.php");
+        break;
 }

@@ -16,6 +16,7 @@
         <input type="submit" name="b1" value="Alterar" />
         <input type="submit" name="b1" value="Remover" />
         <input type="submit" name="b1" value="Listar" />
+        <input type="submit" name="b1" value="Carrinho" />
     </form>
 </body>
 
