@@ -8,7 +8,7 @@ class Banco
     {
         // definições de host, database, usuário e senha
         $host = "localhost";
-        $base   = "LPB";
+        $base   = "TOCC8";
         $porta = "5432";
         $user = "postgres";
         $senha = "ifsp";

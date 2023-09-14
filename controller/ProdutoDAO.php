@@ -1,14 +1,14 @@
 <?php
 include("..\\model\\Banco.php");
-include("..\\model\\Cliente.php");
+include("..\\model\\Produto.php");
 
-class ClienteDAO
+class ProdutoDAO
 {
 
     public function gravar($obj)
     {
         $banco = new Banco();
-        $resultado = pg_query($banco->conexao, "Insert into cliente(nome,idade) values('" . $obj->getNome() . "'," . $obj->getIdade() . ")");
+        $resultado = pg_query($banco->conexao, "Insert into produto(descricao,preco) values('" . $obj->getDescricao() . "'," . $obj->getPreco() . ")");
         $r = pg_affected_rows($resultado);
         pg_close($banco->conexao);
         return $r;
@@ -17,7 +17,7 @@ class ClienteDAO
     public function listar()
     {
         $banco = new Banco();
-        $tabela = pg_query($banco->conexao, "Select codigo,nome,idade from cliente order by 2 desc;");
+        $tabela = pg_query($banco->conexao, "Select codigo,descricao,preco from produto order by 2 desc;");
         pg_close($banco->conexao);
         return $tabela;
     }
@@ -25,7 +25,7 @@ class ClienteDAO
     public function remover($obj)
     {
         $banco = new Banco();
-        $resultado = pg_query($banco->conexao, "Delete from cliente where codigo = " . $obj->getCodigo());
+        $resultado = pg_query($banco->conexao, "Delete from produto where codigo = " . $obj->getCodigo());
         $r = pg_affected_rows($resultado);
         pg_close($banco->conexao);
         return $r;
@@ -33,7 +33,7 @@ class ClienteDAO
     public function alterar($obj)
     {
         $banco = new Banco();
-        $resultado = pg_query($banco->conexao, "Update cliente set nome='" . $obj->getNome() . "', idade = " . $obj->getIdade() . " where codigo = " . $obj->getCodigo());
+        $resultado = pg_query($banco->conexao, "Update produto set descricao='" . $obj->getDescricao() . "', preco = " . $obj->getPreco() . " where codigo = " . $obj->getCodigo());
         $r = pg_affected_rows($resultado);
         pg_close($banco->conexao);
         return $r;

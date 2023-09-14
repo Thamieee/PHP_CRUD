@@ -8,21 +8,21 @@
 
 <body>
     <?php
-    include("..\\controller\\ClienteDAO.php");
+    include("..\\controller\\ProdutoDAO.php");
 
     //cria ou captura a sessao
     session_start();
     //$_SESSION['codigo'] -> pega o campo codigo da sessao.
     if (isset($_SESSION['codigo'])) { //isset -> verifica se recebeu algo
-        $dao = new ClienteDAO();
-        $obj = new Cliente();
+        $dao = new ProdutoDAO();
+        $obj = new Produto();
         $obj->setCodigo($_SESSION['codigo']);
-        $obj->setNome($_SESSION['nome']);
-        $obj->setIdade($_SESSION['idade']);
+        $obj->setDescricao($_SESSION['descricao']);
+        $obj->setPreco($_SESSION['preco']);
         $r = $dao->alterar($obj);
 
         if ($r > 0) {
-            echo $obj->getNome() . " alterado com sucesso.";
+            echo $obj->getDescricao() . " alterado com sucesso.";
         } else {
             echo "Nada foi alterado.";
         }

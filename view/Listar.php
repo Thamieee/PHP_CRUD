@@ -8,14 +8,14 @@
 
 <body>
     <?php
-    include("..\\controller\\ClienteDAO.php");
-    $dao = new ClienteDAO();
+    include("..\\controller\\ProdutoDAO.php");
+    $dao = new ProdutoDAO();
 
     $tabela = $dao->listar();
     if ($tabela) {
-        echo " <h1> Lista de Clientes </h1><br/>";
+        echo " <h1> Lista de Produtos </h1><br/>";
         while ($linha = pg_fetch_array($tabela)) {
-            echo "Codigo: $linha[0] Nome: $linha[1] Idade: $linha[2] <br/>";
+            echo "Codigo: $linha[0] Descricao: $linha[1] Preco: $linha[2] <br/>";
         }
     } else
         echo "Tabela vazia.";

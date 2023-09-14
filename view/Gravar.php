@@ -8,16 +8,16 @@
 
 <body>
     <?php
-    include("..\\controller\\ClienteDAO.php");
-    $dao = new ClienteDAO();
-    $obj = new Cliente();
+    include("..\\controller\\ProdutoDAO.php");
+    $dao = new ProdutoDAO();
+    $obj = new Produto();
 
-    $obj->setNome($_GET['txtNome']);
-    $obj->setIdade($_GET['txtIdade']);
+    $obj->setDescricao($_GET['txtDescricao']);
+    $obj->setPreco($_GET['txtPreco']);
     $r = $dao->gravar($obj);
 
     if ($r > 0) {
-        echo $obj->getNome() . " salvo com sucesso.";
+        echo $obj->getDescricao() . " salvo com sucesso.";
     } else {
         echo "Nada foi salvo.";
     }

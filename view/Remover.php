@@ -8,16 +8,16 @@
 
 <body>
     <?php
-    include("..\\controller\\ClienteDAO.php");
-    $dao = new ClienteDAO();
-    $obj = new Cliente();
+    include("..\\controller\\ProdutoDAO.php");
+    $dao = new ProdutoDAO();
+    $obj = new Produto();
 
     $obj->setCodigo($_GET['txtCodigo']);
 
     $r = $dao->remover($obj);
 
     if ($r > 0) {
-        echo $obj->getNome() . " removido com sucesso.";
+        echo $obj->getDescricao() . " removido com sucesso.";
     } else {
         echo "Nada foi removido.";
     }
