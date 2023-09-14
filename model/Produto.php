@@ -17,7 +17,7 @@ class Produto {
         return $this->descricao;
     }
     public function setPreco($i){
-        $this->preco=settype($i,"float");
+        $this->preco=floatval(str_replace(",", ".", $i));
     }
     public function getPreco(){
         return $this->preco;
