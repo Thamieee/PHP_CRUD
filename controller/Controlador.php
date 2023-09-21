@@ -22,4 +22,20 @@ switch ($botao) {
     case 'carrinho':
         header("Location: ..\\view\Carrinho.php");
         break;
+    case 'adicionar':
+        session_start();
+        include("..\\model\\Produto.php");
+        if(!isset($_SESSION['carrinho'])){
+            $lista= array();    
+        }else{
+            $lista=$_SESSION['carrinho'];
+        }
+        $produto = new Produto();
+        $produto->setCodigo($_GET['txtCodigo']);
+        $produto->setDescricao($_GET['txtDescricao']);
+        $produto->setPreco($_GET['txtPreco']);
+        array_push($lista,$produto);
+        //$_SESSION['carrinho'][] = serialize($produto);
+        $_SESSION['carrinho'] = $lista;
+        break;
 }

@@ -6,6 +6,11 @@
     <title> Primeiro Site PHP </title>
 </head>
 
+<?php
+include('session_start.php');
+//session_destroy();
+?>
+
 <body>
     <h1>Formulário do CRUD </h1>
     <form action="controller\Controlador.php" method="get">

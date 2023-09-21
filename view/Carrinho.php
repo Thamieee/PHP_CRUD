@@ -8,16 +8,15 @@
 
 <body>
     <?php
-    include("..\\controller\\ProdutoDAO.php");
-    $dao = new ProdutoDAO();
-
-    $tabela = $dao->listar();
+     include("..\\model\\Produto.php");
+    session_start();
+    $carrinho = $_SESSION['carrinho'];
     $soma = 0;
-    if ($tabela) {
+    if ($carrinho) {
         echo " <h1> Carrinho </h1><br/>";
-        while ($linha = pg_fetch_array($tabela)) {
-            echo "Codigo: $linha[0] Descricao: $linha[1] Preco: $linha[2] <br/>";
-            $soma = $soma + $linha[2];
+        foreach ($carrinho as $produto) {
+            echo "Codigo: " . $produto->getCodigo() . " Descricao: " . $produto->getDescricao() . " Preco: " . $produto->getPreco() . "<br/>";
+            $soma = $soma + $produto->getPreco();
         }
     } else
         echo "Tabela vazia.";
