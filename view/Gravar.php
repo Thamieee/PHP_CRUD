@@ -21,6 +21,7 @@
     } else {
         echo "Nada foi salvo.";
     }
+    echo '<br/><br/><a href="..\\index.php"><button>Voltar</button></a>';
     ?>
 </body>
 

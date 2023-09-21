@@ -10,10 +10,9 @@
     <?php
     include("..\\controller\\ProdutoDAO.php");
 
-    //cria ou captura a sessao
     session_start();
-    //$_SESSION['codigo'] -> pega o campo codigo da sessao.
-    if (isset($_SESSION['codigo'])) { //isset -> verifica se recebeu algo
+
+    if (isset($_SESSION['codigo'])) {
         $dao = new ProdutoDAO();
         $obj = new Produto();
         $obj->setCodigo($_SESSION['codigo']);
@@ -29,7 +28,8 @@
     } else
         echo 'Dados não foram recebidos.';
 
-    session_destroy(); //apaga tudo da sessão    
+    echo '<br/><br/><a href="..\\index.php"><button>Voltar</button></a>';
+    session_destroy();     
     ?>
 </body>
 

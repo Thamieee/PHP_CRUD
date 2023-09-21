@@ -37,5 +37,9 @@ switch ($botao) {
         array_push($lista,$produto);
         //$_SESSION['carrinho'][] = serialize($produto);
         $_SESSION['carrinho'] = $lista;
+        echo $produto->getDescricao() . " adicionado ao carrinho<br/><br/>";
+        echo '<a href="..\\index.php" style="margin-right:5px;"><button>Voltar</button></a>';
+        echo '<a href="..\\view\\Listar.php" style="margin-right:5px;"><button>Listar</button></a>';
+        echo '<a href="..\\view\\Carrinho.php"><button>Carrinho</button></a>';
         break;
 }

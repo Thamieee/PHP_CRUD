@@ -20,6 +20,7 @@
     } else {
         echo "Nada foi removido.";
     }
+    echo '<br/><br/><a href="..\\index.php"><button>Voltar</button></a>';
     ?>
 </body>
 
